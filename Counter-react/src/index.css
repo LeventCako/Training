@@ -1,0 +1,18 @@
+
+
+.body-app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.counter-score {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 10%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the size of the counter */
+}
