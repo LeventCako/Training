@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 
 
 function Counter() {
- 
+
   const [count, setCount] = useState(0);
   const [click, setClick] = useState(0);
   const [cps, setCps] = useState(0);
+  const [savedScores, setSavedScores] = useState([]);
   const lastCpsTimeRef = useRef(Date.now());
   function addCount() {
-    setCount(c => c + 1 );
+    setCount(c => c + 1);
   }
   function decreaseCount() {
     setCount(c => c - 1)
@@ -47,24 +48,47 @@ function Counter() {
 
     return () => clearInterval(intervalId); // Clean up the interval on component unmount
   }, []);
+
+
+
+  /* Store value within an save Button */
+
+  function saveScores() {
+ 
+  setSavedScores([...savedScores, count]);
+  }
+
+
+  function resetScore() {
+    setSavedScores([null]);
+  }
+
   return (
     <>
-   <div className='body-app'>
-    <div className='counter-body'>
-      <p className='counter-score'>{count}</p>
-      <button className='addBtn' onClick={() => {
-        addCount();
-        handleClickPerSecond();
-        }}>Increase</button>
-      <button className='decreaseBtn' onClick={() => {
-        decreaseCount();
-        handleClickPerSecond();
-      }}>Decrease</button>
-      <button className='resetBtn' onClick={resetCount}>Reset</button>
-      
-    </div>
-    <p  className='Cps-score'>Cps: {cps} </p>
-   </div>
+      <div className='body-app'>
+        <div className='counter-body'>
+          <p className='counter-score'>{count}</p>
+          <button className='addBtn' onClick={() => {
+            addCount();
+            handleClickPerSecond();
+          }}>Increase</button>
+          <button className='decreaseBtn' onClick={() => {
+            decreaseCount();
+            handleClickPerSecond();
+          }}>Decrease</button>
+          <button className='resetBtn' onClick={resetCount}>Reset</button>
+          <button className='saveBtn' onClick={saveScores}>Save Score</button>
+
+        </div>
+        <p className='Cps-score'>Cps: {cps} </p>
+        <ul className='scoreboardList'> 
+          <button onClick={resetScore}>Reset Score</button>
+          <em>Scoreboard</em>
+          {savedScores.map((savedScore, index) => {
+            return <li key={index}>{savedScore}</li>
+          })}
+        </ul>
+      </div>
     </>
   )
 }

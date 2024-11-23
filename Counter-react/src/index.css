@@ -61,12 +61,26 @@ body {
   transition: 0.3s;
 }
 
+
+.saveBtn{
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  margin-right: 10px;
+}
+.saveBtn:hover{
+  height: 32px;
+  transition: 0.3s;
+}
+
 .resetBtn{
   background-color: beige;
   border: none;
   border-radius: 15px;
   height: 30px;
   width: 63px;
+  margin-right: 10px;
 }
 .resetBtn:hover{
   height: 32px;
@@ -85,4 +99,17 @@ top: 35%;
   background-color: white;
   padding: 10px;
   border-radius: 15px;
+}
+
+
+.scoreboardList {
+  list-style: square;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  color: white;
 }
