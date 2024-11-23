@@ -9,6 +9,7 @@ function Counter() {
   const [click, setClick] = useState(0);
   const [cps, setCps] = useState(0);
   const [savedScores, setSavedScores] = useState([]);
+  const [customnum, setCustomnum] = useState(0);
   const lastCpsTimeRef = useRef(Date.now());
   function addCount() {
     setCount(c => c + 1);
@@ -63,6 +64,22 @@ function Counter() {
     setSavedScores([null]);
   }
 
+
+  function customInc(event) {
+    const value = Number(event.target.value); // Convert input value to a number
+    setCustomnum(value);
+   
+  }
+
+  function handleCustomIncrement() {
+    setCount(c => c + customnum); // Add the custom number to count when the button is clicked
+}
+
+function handleCustomDecrement(index) {
+  setCount(c => c - customnum); // Subtract the custom number from count when the button is clicked
+}
+
+
   return (
     <>
       <div className='body-app'>
@@ -72,10 +89,20 @@ function Counter() {
             addCount();
             handleClickPerSecond();
           }}>Increase</button>
+          <button onClick={handleCustomIncrement} className='CaddBtn'>
+            Custom Inc.
+          </button>
+          <input className='CustomIncInput' value={customnum} onChange={(customInc)}  type='number' placeholder='5'></input>
+
           <button className='decreaseBtn' onClick={() => {
             decreaseCount();
             handleClickPerSecond();
           }}>Decrease</button>
+          <button className='CdecBtn' onClick={handleCustomDecrement}>
+             Custom Dec.
+          </button>
+          <input className='CustomDecInput' type="number" value={customnum} onChange={(customInc)}   placeholder='5' />
+
           <button className='resetBtn' onClick={resetCount}>Reset</button>
           <button className='saveBtn' onClick={saveScores}>Save Score</button>
 
