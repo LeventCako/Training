@@ -55,8 +55,8 @@ function Counter() {
   /* Store value within an save Button */
 
   function saveScores() {
- 
-  setSavedScores([...savedScores, count]);
+
+    setSavedScores([...savedScores, count]);
   }
 
 
@@ -68,23 +68,59 @@ function Counter() {
   function customInc(event) {
     const value = Number(event.target.value); // Convert input value to a number
     setCustomnum(value);
-   
+
   }
 
   function handleCustomIncrement() {
     setCount(c => c + customnum); // Add the custom number to count when the button is clicked
-}
+  }
 
-function handleCustomDecrement(index) {
-  setCount(c => c - customnum); // Subtract the custom number from count when the button is clicked
-}
+  function handleCustomDecrement(index) {
+    setCount(c => c - customnum); // Subtract the custom number from count when the button is clicked
+  }
+
+  function getColor(count) {
+
+    if (count > 0) {
+      return 'green';
+    }
+    else if (count === 0) {
+      return 'black';
+    }
+    else {
+      return 'red';
+    }
+  }
+
+
+
+  /* HERE I WILL ADD KEYBOARD SHORTCUTS */
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowUp') {
+        addCount(); // Increment by 1
+        setClick(c => c + 1); // Increment click count for CPS
+      } else if (event.key === 'ArrowDown') {
+        decreaseCount(); // Decrement by 1
+        setClick(c => c + 1); // Increment click count for CPS
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown); // Clean up
+    };
+  }, []);
+
 
 
   return (
     <>
       <div className='body-app'>
         <div className='counter-body'>
-          <p className='counter-score'>{count}</p>
+          <p style={{ color: getColor(count) }}
+            className='counter-score'>{count}</p>
           <button className='addBtn' onClick={() => {
             addCount();
             handleClickPerSecond();
@@ -92,23 +128,23 @@ function handleCustomDecrement(index) {
           <button onClick={handleCustomIncrement} className='CaddBtn'>
             Custom Inc.
           </button>
-          <input className='CustomIncInput' value={customnum} onChange={(customInc)}  type='number' placeholder='5'></input>
+          <input className='CustomIncInput' value={customnum} onChange={(customInc)} type='number' placeholder='5'></input>
 
           <button className='decreaseBtn' onClick={() => {
             decreaseCount();
             handleClickPerSecond();
           }}>Decrease</button>
           <button className='CdecBtn' onClick={handleCustomDecrement}>
-             Custom Dec.
+            Custom Dec.
           </button>
-          <input className='CustomDecInput' type="number" value={customnum} onChange={(customInc)}   placeholder='5' />
+          <input className='CustomDecInput' type="number" value={customnum} onChange={(customInc)} placeholder='5' />
 
           <button className='resetBtn' onClick={resetCount}>Reset</button>
           <button className='saveBtn' onClick={saveScores}>Save Score</button>
 
         </div>
-        <p className='Cps-score'>Cps: {cps} </p>
-        <ul className='scoreboardList'> 
+        <p style={{ color: getColor(count) }} className='Cps-score'>Cps: {cps} </p>
+        <ul className='scoreboardList'>
           <button onClick={resetScore}>Reset Score</button>
           <em>Scoreboard</em>
           {savedScores.map((savedScore, index) => {
