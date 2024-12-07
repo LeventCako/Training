@@ -13,6 +13,7 @@ function Counter() {
   const lastCpsTimeRef = useRef(Date.now());
   function addCount() {
     setCount(c => c + 1);
+    achievementSystem();
   }
   function decreaseCount() {
     setCount(c => c - 1)
@@ -73,6 +74,7 @@ function Counter() {
 
   function handleCustomIncrement() {
     setCount(c => c + customnum); // Add the custom number to count when the button is clicked
+    achievementSystem();
   }
 
   function handleCustomDecrement(index) {
@@ -115,6 +117,33 @@ function Counter() {
 
 
 
+  /* Here I will add an achievement System */
+  const FirstAchievement = 50;
+  const SecondAchievement = 100;
+  const ThirdAchievement = 150;
+  const FourthAchievement = 550;
+  const FifthAchievement = 1000;
+
+    function achievementSystem() {
+     switch (count) {
+      case  50:
+        alert(`Congrats! You've reached ${FirstAchievement}`)
+        break;
+      case 100:
+        alert(`Congrats! You've reached ${SecondAchievement}`)
+        break;
+        case 150:
+          alert(`Congrats! You've reached ${ThirdAchievement}`)
+          break;
+          case 550:
+            alert(`Congrats! You've reached ${FourthAchievement}`)
+            break;
+            case 1000:
+              alert(`Congrats! You've reached ${FifthAchievement}`)
+     }
+    }
+
+    
   return (
     <>
       <div className='body-app'>
