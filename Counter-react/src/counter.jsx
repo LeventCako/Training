@@ -11,12 +11,17 @@ function Counter() {
   const [savedScores, setSavedScores] = useState([]);
   const [customnum, setCustomnum] = useState(0);
   const lastCpsTimeRef = useRef(Date.now());
+
+  const incrementSound = new Audio('src/assets/ClickSound.mp3');
+
   function addCount() {
     setCount(c => c + 1);
     achievementSystem();
+    incrementSound.play();
   }
   function decreaseCount() {
     setCount(c => c - 1)
+    incrementSound.play();
   }
   function resetCount() {
     setCount(c => c = 0)
@@ -75,10 +80,12 @@ function Counter() {
   function handleCustomIncrement() {
     setCount(c => c + customnum); // Add the custom number to count when the button is clicked
     achievementSystem();
+    incrementSound.play();
   }
 
   function handleCustomDecrement(index) {
     setCount(c => c - customnum); // Subtract the custom number from count when the button is clicked
+    incrementSound.play();
   }
 
   function getColor(count) {
