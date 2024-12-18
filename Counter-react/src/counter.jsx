@@ -11,17 +11,23 @@ function Counter() {
   const [savedScores, setSavedScores] = useState([]);
   const [customnum, setCustomnum] = useState(0);
   const lastCpsTimeRef = useRef(Date.now());
+  const [soundStatus, setSoundStatus] = useState(true);
 
   const incrementSound = new Audio('src/assets/ClickSound.mp3');
 
   function addCount() {
     setCount(c => c + 1);
     achievementSystem();
-    incrementSound.play();
+    if(soundStatus) {
+      incrementSound.play();
+      
+    } 
   }
   function decreaseCount() {
     setCount(c => c - 1)
-    incrementSound.play();
+    if(soundStatus) {
+      incrementSound.play();
+    } 
   }
   function resetCount() {
     setCount(c => c = 0)
@@ -80,12 +86,16 @@ function Counter() {
   function handleCustomIncrement() {
     setCount(c => c + customnum); // Add the custom number to count when the button is clicked
     achievementSystem();
-    incrementSound.play();
+    if(soundStatus) {
+      incrementSound.play();
+    } 
   }
 
   function handleCustomDecrement(index) {
     setCount(c => c - customnum); // Subtract the custom number from count when the button is clicked
-    incrementSound.play();
+    if(soundStatus) {
+      incrementSound.play();
+    } 
   }
 
   function getColor(count) {
@@ -101,7 +111,7 @@ function Counter() {
     }
   }
 
-
+ 
 
   /* HERE I WILL ADD KEYBOARD SHORTCUTS */
 
@@ -151,6 +161,14 @@ function Counter() {
     }
 
     
+    /* Here i will add a function to deactivate/activate the Sound */
+
+    function SoundDeactivate() {
+      setSoundStatus(false);
+    }
+    function SoundActivate() {
+      setSoundStatus(true);
+    }
   return (
     <>
       <div className='body-app'>
@@ -187,6 +205,15 @@ function Counter() {
             return <li key={index}>{savedScore}</li>
           })}
         </ul>
+      </div>
+      <div >
+        <button className='SoundBtn' 
+        style={{ backgroundColor: soundStatus ? 'green' : 'red' }}
+        >Sound</button>
+        <div className='Dropdown-menu'>
+          <button className='SoundOn' onClick={SoundActivate}>On</button>
+          <button className='SoundOff' onClick={SoundDeactivate}>Off</button>
+        </div>
       </div>
     </>
   )

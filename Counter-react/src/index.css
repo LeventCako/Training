@@ -159,3 +159,29 @@ top: 35%;
   top: 10%;
   left: 54%;
 }
+.SoundBtn {
+  position: absolute;
+  top: 90%;
+  /* Center vertically */
+  left: 90%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  
+}
+
+.Dropdown-menu {
+  display: flex; /* Use flexbox to align items in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  position: absolute; /* Position it as needed */
+  top: 95%; /* Adjust as necessary */
+  left: 90%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+}
+
+.SoundOn {
+  margin: 0 5px;
+}
+
+.SoundOff {
+  margin: 0 5px;
+}
