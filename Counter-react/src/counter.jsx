@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import ProgressBar from './progressbar.jsx'
 
 
 function Counter() {
@@ -17,6 +18,7 @@ function Counter() {
 
   function addCount() {
     setCount(c => c + 1);
+    
     achievementSystem();
     if(soundStatus) {
       incrementSound.play();
@@ -169,6 +171,8 @@ function Counter() {
     function SoundActivate() {
       setSoundStatus(true);
     }
+
+
   return (
     <>
       <div className='body-app'>
@@ -215,6 +219,7 @@ function Counter() {
           <button className='SoundOff' onClick={SoundDeactivate}>Off</button>
         </div>
       </div>
+      <ProgressBar value={count} max={100}></ProgressBar>
     </>
   )
 }
