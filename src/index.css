@@ -1,0 +1,77 @@
+body {
+  height: 3000px;
+  margin: 0;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between title and buttons */
+  align-items: center; /* Center items vertically */
+  text-align: right;
+  cursor: pointer;
+  
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-right: 20px;
+  
+
+}
+
+.header-buttons button {
+  
+  margin-left: 10px;
+  padding: 5px 10px;
+  /* Adjust padding to reduce height */
+  border: none;
+  /* Optional: Remove border */
+  background-color: #fff;
+  /* Button background color */
+  color: #333;
+  /* Button text color */
+  border-radius: 4px;
+  /* Optional: Rounded corners */
+  cursor: pointer;
+  /* Change cursor on hover */
+  
+
+}
+
+
+.header-buttons button:hover {
+  background-color: #c4baba;
+  
+}
+
+
+.searchbar {
+  position: absolute;
+  top: 115px;
+  width: 80%;
+  left: 0;
+
+  height: 30px;
+  border-radius: 12px 0px 0px 12px;
+}
+
+.searchicon {
+  position: absolute;
+  top: 115px;
+  left: 80%;
+  height: 30px;
+  background-color: #fff;
+}
+
+.searchicon:hover {
+  background-color: #c2c1c1;
+}
