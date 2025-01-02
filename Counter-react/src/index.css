@@ -1,0 +1,187 @@
+body {
+  background-image: url(assets/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.body-app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+
+.counter-score {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 15%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjust for the size of the counter */
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 10px;
+}
+
+
+.addBtn{
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  margin-right: 10px;
+  
+}
+
+.addBtn:hover{
+  height: 32px;
+  transition: 0.3s;
+}
+
+.decreaseBtn{
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  margin-right: 10px;
+}
+.decreaseBtn:hover{
+  height: 32px;
+  transition: 0.3s;
+}
+
+
+.saveBtn{
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  margin-right: 10px;
+}
+.saveBtn:hover{
+  height: 32px;
+  transition: 0.3s;
+}
+
+.resetBtn{
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  width: 63px;
+  margin-right: 10px;
+}
+.resetBtn:hover{
+  height: 32px;
+  transition: 0.3s;
+}
+
+.Cps-score{
+position: absolute;
+top: 35%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjust for the size of the counter */
+  color: rgb(0, 0, 0);
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+
+.scoreboardList {
+  list-style: square;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  color: white;
+}
+
+
+.CustomIncInput {
+  width: 30px;
+  border-radius: 20px;
+  margin-right: 5px;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  
+}
+
+
+.CaddBtn{
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  margin-right: 10px;
+  
+  
+}
+
+.CaddBtn:hover{
+  height: 32px;
+  transition: 0.3s;
+}
+
+
+.CdecBtn {
+  background-color: beige;
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+
+.CustomDecInput{
+  width: 30px;
+  border-radius: 20px;
+  margin-right: 5px;
+  position: absolute;
+  top: 10%;
+  left: 54%;
+}
+.SoundBtn {
+  position: absolute;
+  top: 90%;
+  /* Center vertically */
+  left: 90%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  
+}
+
+.Dropdown-menu {
+  display: flex; /* Use flexbox to align items in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  position: absolute; /* Position it as needed */
+  top: 95%; /* Adjust as necessary */
+  left: 90%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+}
+
+.SoundOn {
+  margin: 0 5px;
+}
+
+.SoundOff {
+  margin: 0 5px;
+}
